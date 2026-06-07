@@ -182,3 +182,54 @@ input:focus, select:focus, textarea:focus {
   0%, 100% { opacity: 1; transform: scale(1); }
   50% { opacity: 0.95; transform: scale(0.98); }
 }
+
+/* --- كود تحسين الاستجابة للهاتف والكمبيوتر معاً --- */
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+/* تحويل الأقسام إلى شبكة مرنة متجاوبة تلقائياً */
+#services .grid, 
+.grid-cols-2 {
+  display: grid;
+  grid-template-columns: 1fr; /* الافتراضي للهاتف: كرت واحد في السطر */
+  gap: 1.5rem;
+}
+
+/* تنسيق النموذج والخريطة بالتساوي في الأسفل */
+#contact .grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+/* الشاشات الكبيرة (الكمبيوتر والأيباد العريض) */
+@media (min-width: 768px) {
+  #services .grid {
+    grid-template-columns: repeat(3, 1fr); /* 3 كروت بجانب بعضها في الكمبيوتر */
+  }
+  
+  .grid-cols-2 {
+    grid-template-columns: repeat(4, 1fr); /* الميزات التنافسية تصبح 4 أعمدة */
+  }
+  
+  #contact .grid {
+    grid-template-columns: repeat(2, 1fr); /* النموذج والخريطة بجانب بعضهما */
+  }
+  
+  /* تكبير أحجام الخطوط قليلاً للكمبيوتر */
+  h1 { font-size: 3.5rem !important; }
+  h2 { font-size: 2.5rem !important; }
+  
+  /* جعل الأزرار والصناديق تأخذ عرضاً مناسباً بدلاً من ملء الشاشة العريضة */
+  .max-w-sm {
+    max-width: 48rem !important; /* يتوسع الصندوق ليعطي مظهراً فخماً في الكمبيوتر */
+  }
+  
+  .flex-col {
+    flex-direction: row !important; /* الأزرار تترتب بجانب بعضها في الكمبيوتر */
+    justify-content: center;
+  }
+}
