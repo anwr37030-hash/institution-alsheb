@@ -18,6 +18,10 @@ body {
   margin: 0;
   line-height: 1.7;
 }
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
 
 /* التنسيقات الخاصة بالروابط المخصصة في الهيدر */
 .nav-link {
@@ -196,6 +200,33 @@ input:focus, select:focus, textarea:focus {
   display: grid;
   grid-template-columns: 1fr; /* الافتراضي للهاتف: كرت واحد في السطر */
   gap: 1.5rem;
+}
+
+/* تنسيقات مخصصة للهواتف التي يقل عرض شاشتها عن 768 بكسل */
+@media (max-width: 768px) {
+  
+  /* جعل الحاوية الرئيسية مرنة وتتناسب مع الشاشة */
+  body, .container, .main-wrapper {
+    width: 100%;
+    padding: 10px;
+    box-sizing: border-box;
+  }
+
+  /* تصغير حجم الخطوط الكبيرة لتناسب الهاتف */
+  h1 {
+    font-size: 24px !important;
+  }
+  
+  h2 {
+    font-size: 20px !important;
+  }
+
+  /* جعل الأزرار والعناصر تأخذ كامل العرض المتاح بشكل منظم */
+  .button, btn {
+    width: 100%;
+    display: block;
+    margin-bottom: 10px;
+  }
 }
 
 /* تنسيق النموذج والخريطة بالتساوي في الأسفل */
